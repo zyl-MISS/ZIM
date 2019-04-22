@@ -5,13 +5,17 @@
   "author": "zhouyongli <1804145090@qq.com>",
   "private": true,
   "scripts": {
-    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
+    "dev": "API=dev webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
+    "dev_test": "API=test webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
+    "dev_prod":"API=prod webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
     "unit": "jest --config test/unit/jest.conf.js --coverage",
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
     "lint": "eslint --ext .js,.vue src test/unit test/e2e/specs",
-    "build": "node build/build.js"
+    "build": "API=dev node build/build.js",
+    "build_test": "API=test node build/build.js",
+    "build_prod": "API=prod node build/build.js"
   },
   "dependencies": {
     "vue": "^2.5.2",
